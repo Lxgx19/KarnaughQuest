@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KarnaughQuest</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<main>
+  <header class="brand">
+    <span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div><h1>KarnaughQuest</h1><p class="sub">Practica la agrupación en mapas de Karnaugh</p></div>
+  </header>
+  <section class="bar">
+    <div class="seg" id="vars" role="group" aria-label="Número de variables"></div>
+    <button class="btn pri" id="nuevo">Nuevo ejercicio</button>
+    <div class="hud">
+      <span class="chip">Tiempo <b id="time">0:00</b></span>
+      <span class="chip">Puntaje <b id="score">0</b></span>
+      <span class="chip">Récord <b id="record">0</b></span>
+    </div>
+  </section>
+  <section class="game">
+    <div class="board">
+      <div id="map"></div>
+      <p class="hint">Toca las celdas con 1 que quieras agrupar y pulsa «Agregar grupo».</p>
+    </div>
+    <aside>
+      <h2>Tus grupos</h2>
+      <div id="groups-panel"></div>
+      <div class="acts">
+        <button class="btn" id="add">Agregar grupo</button>
+        <button class="btn" id="clear">Limpiar selección</button>
+        <button class="btn" id="hint">Pista</button>
+        <button class="btn pri" id="check">Comprobar</button>
+        <button class="btn" id="reveal">Ver solución</button>
+      </div>
+      <p id="msg" role="status"></p>
+      <details class="mp"><summary>Multijugador (beta)</summary><div id="mp-body"></div></details>
+    </aside>
+  </section>
+</main>
+<!-- Orden de carga: core -> net -> engine -> game -> infra -> ui -> main (scripts clásicos, sin servidor) -->
+<script src="js/core/EventEmitter.js"></script>
+<script src="js/core/SeededRandom.js"></script>
+<script src="js/core/Cube.js"></script>
+<script src="js/core/BooleanFunction.js"></script>
+<script src="js/core/KarnaughMap.js"></script>
+<script src="js/net/Transport.js"></script>
+<script src="js/net/BroadcastTransport.js"></script>
+<script src="js/engine/Simplifier.js"></script>
+<script src="js/engine/GroupValidator.js"></script>
+<script src="js/game/Group.js"></script>
+<script src="js/game/Exercise.js"></script>
+<script src="js/game/ExerciseGenerator.js"></script>
+<script src="js/game/Player.js"></script>
+<script src="js/game/Game.js"></script>
+<script src="js/game/Match.js"></script>
+<script src="js/infra/LocalStore.js"></script>
+<script src="js/ui/View.js"></script>
+<script src="js/ui/MapView.js"></script>
+<script src="js/ui/GroupListView.js"></script>
+<script src="js/ui/ControlsView.js"></script>
+<script src="js/ui/MessageView.js"></script>
+<script src="js/ui/MultiplayerView.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
